@@ -1,0 +1,32 @@
+{
+  "devDependencies": {
+    "parcel": "^2.8.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "broswerlist" : [
+    "last 2 version"
+  ],
+    
+  "name": "food-delivery-app",
+  "version": "1.0.0",
+  "description": "Orderit app",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jogeshwaran/OrderIt.git"
+  },
+  "author": "Jogeshwaran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jogeshwaran/OrderIt/issues"
+  },
+  "homepage": "https://github.com/Jogeshwaran/OrderIt#readme"
+}
