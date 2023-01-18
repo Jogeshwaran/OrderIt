@@ -11,6 +11,7 @@ import{ Title }from "./components/Header";
 import HeaderComponent from "./components/Header";
 import Footer from "./components/Footer";
 import Body from "./components/Body";
+import ShimmerUi from "./components/ShimmerUi";
 // -----------
 //Import two three or more from the file and use it as a object
 //import * as Xyz from './components/Header'
@@ -54,6 +55,7 @@ const AppLayout = () => {
     <Fragment>
     <HeaderComponent />
     <Body />
+
     <Footer />
     </Fragment>
     )

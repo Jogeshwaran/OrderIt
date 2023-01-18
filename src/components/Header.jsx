@@ -1,3 +1,5 @@
+import Skeleton from "react-loading-skeleton"
+
 //REact Element 
 export const Title = () => {
     return(
@@ -11,11 +13,11 @@ export const Title = () => {
 
  const HeaderComponent = () => {
         return(
-            <div className="header">
+            <div className="header"  >
                 <Title />
                 <div className="nav-items">
                     <ul>
-                        <li>Home</li>
+                        <li>Home </li>
                         <li>About Us</li>
                         <li>Contact</li>
                         <li>Cart</li>
