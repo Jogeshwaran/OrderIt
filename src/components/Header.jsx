@@ -1,5 +1,4 @@
-import Skeleton from "react-loading-skeleton"
-
+import { Link } from "react-router-dom"
 //REact Element 
 export const Title = () => {
     return(
@@ -17,10 +16,9 @@ export const Title = () => {
                 <Title />
                 <div className="nav-items">
                     <ul>
-                        <li>Home </li>
-                        <li>About Us</li>
-                        <li>Contact</li>
-                        <li>Cart</li>
+                       <Link to="/"><li>Home </li></Link> 
+                       <Link to="/about"><li>About Us</li></Link> 
+                       <Link to="/contact"><li>Contact Us</li></Link>                         <li>Cart</li>
                     </ul>
                 </div>
             </div>
