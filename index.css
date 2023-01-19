@@ -47,3 +47,49 @@
     display: flex;
     justify-content:space-around;
 }
+.shimmer-cards{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-effect {
+    align-items: center;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid lightgrey;
+    margin: 20px;
+  }
+  
+  .shimmer-image {
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(to right, #f2f2f2 0%, #e6e6e6 20%, #f2f2f2 40%, #f2f2f2 100%);
+    animation: shimmer 1s ease-in-out infinite;
+  }
+  
+  .shimmer-text {
+    margin-top: 20px;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to right, #f2f2f2 0%, #e6e6e6 20%, #f2f2f2 40%, #f2f2f2 100%);
+    animation: shimmer 1s ease-in-out infinite;
+  }
+  /* .shimmer-cuisne-div{
+  } */
+  .shimmer-cuisine{
+    width: 75px;
+    height: 5px;
+    background: linear-gradient(to right, #f2f2f2 0%, #e6e6e6 20%, #f2f2f2 40%, #f2f2f2 100%);
+    animation: shimmer 1s ease-in-out infinite;
+  }
+
+  @keyframes shimmer-effect {
+    0% {
+      background-position: -150px;
+    }
+    100% {
+      background-position: 150px;
+    }
+  }
+  
