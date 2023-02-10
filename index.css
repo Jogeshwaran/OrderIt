@@ -1,95 +1,104 @@
 
 
 .header{
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-    border: 1px solid;
-    padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  border: 1px solid;
+  padding-left: 10px;
 }
 
 .nav-items > ul {
-    list-style-type: none; /*for remove that bulllet points in list */
-    display: flex;
+  list-style-type: none; /*for remove that bulllet points in list */
+  display: flex;
 
-    
+  
 }
 
 .nav-items > ul >li {
-    padding: 10px;
+  padding: 10px;
 }
 
 .logo{
-     /* If we use object-fit: contain; the image keeps its aspect ratio, but is resized to fit within the given dimension: */
-    object-fit: contain;
-    width: 100px;
-    margin-top: 20px;
+   /* If we use object-fit: contain; the image keeps its aspect ratio, but is resized to fit within the given dimension: */
+  object-fit: contain;
+  width: 100px;
+  margin-top: 20px;
 }
 
 .restaurant-card {
-    width: 200px;
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
+  width: 200px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
 }
 
 .restaurant-card > img{
-    
-    width: 100%;
+  
+  width: 100%;
 }
 
 .cards{
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .menu{
-    display: flex;
-    justify-content:space-around;
+  display: flex;
+  justify-content:space-around;
 }
 .shimmer-cards{
-    display:flex;
-    flex-wrap: wrap;
+  display:flex;
+  flex-wrap: wrap;
 }
 
 .shimmer-effect {
-    align-items: center;
-    padding: 20px;
-    width: 200px;
-    height: 200px;
-    border: 1px solid lightgrey;
-    margin: 20px;
-  }
-  
-  .shimmer-image {
-    width: 200px;
-    height: 100px;
-    background: linear-gradient(to right, #f2f2f2 0%, #e6e6e6 20%, #f2f2f2 40%, #f2f2f2 100%);
-    animation: shimmer 1s ease-in-out infinite;
-  }
-  
-  .shimmer-text {
-    margin-top: 20px;
-    width: 100%;
-    height: 10px;
-    background: linear-gradient(to right, #f2f2f2 0%, #e6e6e6 20%, #f2f2f2 40%, #f2f2f2 100%);
-    animation: shimmer 1s ease-in-out infinite;
-  }
-  /* .shimmer-cuisne-div{
-  } */
-  .shimmer-cuisine{
-    width: 75px;
-    height: 5px;
-    background: linear-gradient(to right, #f2f2f2 0%, #e6e6e6 20%, #f2f2f2 40%, #f2f2f2 100%);
-    animation: shimmer 1s ease-in-out infinite;
-  }
+  align-items: center;
+  padding: 20px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid lightgrey;
+  margin: 20px;
+}
 
-  @keyframes shimmer-effect {
-    0% {
-      background-position: -150px;
-    }
-    100% {
-      background-position: 150px;
-    }
+.shimmer-image {
+  width: 200px;
+  height: 100px;
+  background: linear-gradient(to right, #f2f2f2 0%, #e6e6e6 20%, #f2f2f2 40%, #f2f2f2 100%);
+  animation: shimmer 1s ease-in-out infinite;
+}
+
+.shimmer-text {
+  margin-top: 20px;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to right, #f2f2f2 0%, #e6e6e6 20%, #f2f2f2 40%, #f2f2f2 100%);
+  animation: shimmer 1s ease-in-out infinite;
+}
+/* .shimmer-cuisne-div{
+} */
+.shimmer-cuisine{
+  width: 75px;
+  height: 5px;
+  background: linear-gradient(to right, #f2f2f2 0%, #e6e6e6 20%, #f2f2f2 40%, #f2f2f2 100%);
+  animation: shimmer 1s ease-in-out infinite;
+}
+
+@keyframes shimmer-effect {
+  0% {
+    background-position: -150px;
   }
-  
+  100% {
+    background-position: 150px;
+  }
+}
+
+.section{
+  margin : 20px;
+  border : 1px solid black;
+  padding:10px;
+}
+
+.login{
+  margin : 20px;
+}

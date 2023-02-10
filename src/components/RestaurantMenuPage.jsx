@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { json, useParams } from "react-router-dom";
 import {ImageUrl} from "../config"
 import Shimmer from "./ShimmerUi";
+import useRestaurant from "../utils/useRestaurant";
 /*How to read the dynamic id to the component
 -> By using the UseParams Hook
 -> call the useParams const params  = useParams();
@@ -9,20 +10,8 @@ import Shimmer from "./ShimmerUi";
 */
 const RestaurantMenuPage = () =>{
     const params  = useParams();
-
-    const [restaurantInfo , setRestaurantInfo ] = useState(null)
-    //null -> because at the intital render the values of the restaurant info are undefined
-
-    useEffect(() => {
-        getRestaurantInfo();
-    },[])
-
-    async function getRestaurantInfo() {
-        const data = await fetch("https://www.swiggy.com/dapi/menu/v4/full?lat=12.945300942134098&lng=79.16578397154808&menuId="+params.id);
-        const jsonData = await data.json();
-        console.log(jsonData);
-        setRestaurantInfo(jsonData.data)
-    }
+    const restaurantInfo = useRestaurant(params.id)
+    
     return (!restaurantInfo) ? <Shimmer/> : (
         <div className="menu">
             <div>

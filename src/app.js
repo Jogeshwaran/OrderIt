@@ -3,10 +3,9 @@
 // const root = document.getElementById("root")
 // root.appendChild(heading)
 
-import React, { Fragment } from "react";
+import React, { Fragment, lazy, Suspense,useState } from "react";
 import ReactDOM from 'react-dom/client';
 //Named import
-import{ Title }from "./components/Header";
 //Default Import
 import HeaderComponent from "./components/Header";
 import Footer from "./components/Footer";
@@ -17,6 +16,10 @@ import About from "./components/About";
 import Error from "./components/Error";
 import ContactUs from './components/ContactUs';
 import RestaurantMenuPage from "./components/RestaurantMenuPage";
+import Profile from "./components/Profile";
+import Login from "./components/Login"
+import UserContext from "./utils/UserContext";
+const Instamart = lazy(() => import('./components/Instamart'))
 // -----------
 //Import two three or more from the file and use it as a object
 //import * as Xyz from './components/Header'
@@ -56,8 +59,18 @@ import RestaurantMenuPage from "./components/RestaurantMenuPage";
     */
 
 const AppLayout = () => {
+    //prop drilling
+    const [user,setUser] = useState({
+        name : "dummy",
+        email : "dummy@gmail.com"
+    })
+
     return(
     <Fragment>
+    <UserContext.Provider value={{
+        user : user,
+        setUser : setUser
+    }}>
     <HeaderComponent /> 
     {/* <About />//render if path is /about
     <Body />//render if path is /
@@ -65,6 +78,8 @@ const AppLayout = () => {
     {/* Outlet*/}
     <Outlet />
     <Footer />
+    </UserContext.Provider>
+
     </Fragment>
     )
 }
@@ -81,7 +96,15 @@ const appRouter = createBrowserRouter([
         },
         {
             path : "/about",
-            element : <About />
+            element : <About />,
+            //children of children
+            children : [{
+                path:"profile", //Dont give the '/' for the children of children 
+                // If we give like this without '/' the react-router-dom will consider as
+                // parentPath(about)/{children}(profile) => localhost::1234/about/profile
+                element : <Profile />
+            }
+            ]
         },
         {
             path: "/contact",
@@ -90,6 +113,16 @@ const appRouter = createBrowserRouter([
         {
             path: "/restaurant/:id", //id is dynamic takes any values
             element : <RestaurantMenuPage />
+        },{
+            path:"/instamart",
+            element : (
+                <Suspense fallback = {<ShimmerUi />}>
+                    <Instamart/>
+                </Suspense>
+            )
+        },{
+            path : "/login",
+            element : <Login />
         }
     
     ]

@@ -3,6 +3,8 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./ShimmerUi";
 import { Link } from "react-router-dom";
+import {filterData} from '../utils/Helper';
+import useNetworkStatus from '../utils/useNetworkStatus'
 
 
 
@@ -12,10 +14,7 @@ import { Link } from "react-router-dom";
 
 //filter algorithm for search
 
-function filterData(searchTxt,restaurants){
-    const data = restaurants.filter((res) => res?.data?.name?.toLowerCase()?.includes(searchTxt))
-    return data 
-}
+
 
 const Body = () =>{
     //Js way of creating a Variable
@@ -54,6 +53,11 @@ const Body = () =>{
     onChangeHandler = (e) =>{
         setSearchTxt(e.target.value)
     }
+
+    const statusOfNetwork = useNetworkStatus();
+    if (statusOfNetwork === false) {
+        return <h1>Oops you are Offline!!</h1>
+    }
     
     //conditional rendering
     // -> if restaurant is empty => shimmerUi
@@ -61,13 +65,23 @@ const Body = () =>{
 
     //not render component if empty(Early returns)
     if(!allRestaurants) return null;
-    
+    const ButtonsCss = {
+        backgroundColor : "red"
+    }
+
+    // or instead of giving the name we can directly pass the javascript object in jsx
+
+    // style = {{
+    //     backgroundColor : "red"
+    // }}
+
+
     return allRestaurants?.length === 0 ? <Shimmer /> : (
         /*Search Bar */
         <>
         <div className="search-box">
             <input type="text" value={searchTxt} onChange = {onChangeHandler} placeholder="Search" className="search-input" />
-            <button className="search-btn" onClick={() => {
+            <button style={ButtonsCss}  className="search-btn" onClick={() => {
                 // need to filter data once search is clicked
                 const data = filterData(searchTxt, allRestaurants);
                 //update the state once its filtered
@@ -86,7 +100,7 @@ const Body = () =>{
     filteredRestaurants.map((restaurantList) => {
         return(
             <Link to={"/restaurant/" + restaurantList.data.id} key={restaurantList.data.id}>
-            <RestaurantCard  {...restaurantList.data}/>
+            <RestaurantCard  {...restaurantList.data}  />
             </Link>
         )
     })}
